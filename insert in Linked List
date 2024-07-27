@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+class Node{
+  public:
+  int value;
+  Node* next;
+  Node(int val): value(val) , next(nullptr){};
+};
+class Linked{
+    public:
+    Node* head;
+    int insertFront(int value)
+    {
+      cout << "inserting a value to the head node : " << value << endl;
+      Node* newNode = new Node(value);
+      newNode -> next = head;
+      head = newNode;
+      return 0;
+    }
+    int getheadValue()
+    {
+      if(head==nullptr)
+      {
+        return -1;
+      }
+      else
+      {
+        return head->value;
+      }
+    }
+
+};
+int main()
+{
+      Linked* list = new Linked();
+      list -> insertFront(3);
+      cout << "the value at head"<< list->getheadValue()<< "/n";
+
+      list->insertFront(2);
+      cout << " the value at head" << list->getheadValue()<<"/n";
+}
