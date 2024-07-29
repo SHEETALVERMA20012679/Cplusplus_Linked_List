@@ -1,0 +1,38 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int key;
+    Node* next;
+    Node(int k) {
+       key = k;
+       next = NULL;
+    }
+};
+
+bool search(Node* head, int x)
+{
+    Node* curr = head; 
+    while (curr != NULL) {
+        if (curr->key == x)
+            return true;
+        curr = curr->next;
+    }
+    return false;
+}
+
+/* Driver code*/
+int main()
+{
+    /* Start with the empty list and creaye
+       14->21->11->30->10 */ 
+    Node* head = new Node(14);
+    head->next = new Node(21);
+    head->next->next = new Node(13);
+    head->next->next->next = new Node(30);
+    head->next->next->next->next = new Node(10);
+    int x = 21;
+    search(head, x) ? cout << "Yes" : cout << "No";
+    return 0;
+}
