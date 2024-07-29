@@ -1,0 +1,48 @@
+#include<iostream>
+
+// Definition of a Node
+struct Node {
+    int data;
+    Node* next;
+    Node(int value) {
+        data = value;
+        next = NULL;
+    }
+};
+
+// Definition of the LinkedList class
+class LinkedList {
+private:
+    Node* head;
+public:
+    LinkedList() {
+        head = NULL;
+    }
+
+    // Function to create the linked list
+    void create() {
+        Node* second = new Node(7);
+        Node* tail = new Node(8);
+
+        head = new Node(6);
+        head->next = second;
+        second->next = tail;
+    }
+
+    // Function to traverse and print the linked list
+    void traverse() {
+        Node* current = head;
+        while (current != NULL) {
+            std::cout << current->data << " ";
+            current = current->next;
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    LinkedList list;
+    list.create();
+    list.traverse();
+    return 0;
+}
